@@ -1,0 +1,60 @@
+version: '2'
+
+services:
+  nginx:
+    image: blacklabelops/nginx
+    container_name: nginx_blacklabel
+    restart: unless-stopped
+    ports:
+      - '80:80'
+      - '443:443'
+    volumes:
+      - letsencrypt_certificates:/etc/letsencrypt
+      - letsencrypt_challenges:/var/www/letsencrypt
+    environment:
+      - 'NGINX_REDIRECT_PORT80=true'
+      - 'SERVER1PROXY_APPLICATION=jira'
+      - 'SERVER1SERVER_NAME=support.nellmedina.com'
+      - 'SERVER1REVERSE_PROXY_LOCATION1=/'
+      - 'SERVER1REVERSE_PROXY_PASS1=http://172.17.0.1:8080'
+      - 'SERVER1HTTPS_ENABLED=false'
+      - 'SERVER2PROXY_APPLICATION=test1'
+      - 'SERVER2SERVER_NAME=test1.nellmedina.com'
+      - 'SERVER2REVERSE_PROXY_LOCATION1=/'
+      - 'SERVER2REVERSE_PROXY_PASS1=http://test1'
+      - 'SERVER2HTTPS_ENABLED=true'
+      - 'SERVER2HTTP_ENABLED=true'
+      - 'SERVER2LETSENCRYPT_CERTIFICATES=true'
+      - 'SERVER2CERTIFICATE_FILE=/etc/letsencrypt/live/test4.nellmedina.com/fullchain.pem'
+      - 'SERVER2CERTIFICATE_KEY=/etc/letsencrypt/live/test4.nellmedina.com/privkey.pem'
+      - 'SERVER2CERTIFICATE_TRUSTED=/etc/letsencrypt/live/test4.nellmedina.com/fullchain.pem'
+      - 'SERVER3PROXY_APPLICATION=test2'
+      - 'SERVER3SERVER_NAME=test2.nellmedina.com'
+      - 'SERVER3REVERSE_PROXY_LOCATION1=/'
+      - 'SERVER3REVERSE_PROXY_PASS1=http://test2'
+      - 'SERVER3HTTPS_ENABLED=true'
+      - 'SERVER3HTTP_ENABLED=true'
+      - 'SERVER3LETSENCRYPT_CERTIFICATES=true'
+      - 'SERVER3CERTIFICATE_FILE=/etc/letsencrypt/live/test4.nellmedina.com/fullchain.pem'
+      - 'SERVER3CERTIFICATE_KEY=/etc/letsencrypt/live/test4.nellmedina.com/privkey.pem'
+      - 'SERVER3CERTIFICATE_TRUSTED=/etc/letsencrypt/live/test4.nellmedina.com/fullchain.pem'
+  test1:
+    image: nginx
+    container_name: test1_container
+    hostname: test1
+    restart: unless-stopped
+    volumes:
+      - ./test1:/usr/share/nginx/html
+  test2:
+    image: nginx
+    container_name: test2_container
+    hostname: test2
+    restart: unless-stopped
+    volumes:
+      - ./test2:/usr/share/nginx/html
+
+volumes:
+  letsencrypt_certificates:
+    external: true
+  letsencrypt_challenges:
+    external: true

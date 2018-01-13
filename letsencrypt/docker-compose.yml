@@ -5,11 +5,11 @@ services:
     image: blacklabelops/letsencrypt
     container_name: letsencrypt_install
     ports:
+      - '80:80'
       - '443:443'
     volumes:
       - letsencrypt_certificates:/etc/letsencrypt
     environment:
-      - 'LETSENCRYPT_HTTP_ENABLED=false'
       - 'LETSENCRYPT_EMAIL=email@nellmedina.com'
       - 'LETSENCRYPT_DOMAIN1=mario.nellmedina.com'
       - 'LETSENCRYPT_DOMAIN2=jira.nellmedina.com'
