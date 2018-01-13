@@ -1,7 +1,7 @@
 
 #### Register the Domains
 
-1. create volumes
+Create the volumes
 ``` bash
 docker volume create letsencrypt_certificates
 
@@ -9,12 +9,12 @@ docker volume create letsencrypt_certificates
 docker volume create letsencrypt_challenges
 ```
 
-2. run the docker-compose file that will create SSL keys
+Run the docker-compose file that will create SSL keys
 ``` bash
 docker-compose up
 ```
 
-3. this is running the container but command as `renewal` is used
+Run the container but command as `renewal` is used
 ``` bash
 docker-compose run --rm letsencrypt renewal
 ```
