@@ -1,11 +1,9 @@
 
-#### Register the Domains
+#### Register the Domains for SSL using Letsencrypt
 
 Create the volumes
 ``` bash
 docker volume create letsencrypt_certificates
-
-# this is required for SSL challenges
 docker volume create letsencrypt_challenges
 ```
 

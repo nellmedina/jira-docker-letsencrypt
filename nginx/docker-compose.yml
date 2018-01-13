@@ -1,0 +1,11 @@
+version: '2'
+
+services:
+  nginx-standalone:
+    image: nginx
+    container_name: nginx_container
+    restart: unless-stopped
+    ports:
+        - "80:80"
+    volumes:
+      - ./html:/usr/share/nginx/html
