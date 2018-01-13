@@ -11,10 +11,9 @@ services:
     environment:
       - 'LETSENCRYPT_HTTP_ENABLED=false'
       - 'LETSENCRYPT_EMAIL=email@nellmedina.com'
-      - 'LETSENCRYPT_DOMAIN1=mario.nellmedina.com'
-      - 'LETSENCRYPT_DOMAIN2=jira.nellmedina.com'
-      - 'LETSENCRYPT_DOMAIN3=jenkins.nellmedina.com'
-      - 'LETSENCRYPT_DOMAIN4=keycloak.nellmedina.com'
+      - 'LETSENCRYPT_DOMAIN1=jira.nellmedina.com'
+      - 'LETSENCRYPT_DOMAIN2=jenkins.nellmedina.com'
+      - 'LETSENCRYPT_DOMAIN3=keycloak.nellmedina.com'
     command: install
 
 volumes:
