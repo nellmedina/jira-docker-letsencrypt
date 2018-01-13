@@ -30,9 +30,9 @@ services:
       - 'SERVER2HTTPS_ENABLED=true'
       - 'SERVER2HTTP_ENABLED=true'
       - 'SERVER2LETSENCRYPT_CERTIFICATES=true'
-      - 'SERVER2CERTIFICATE_FILE=/etc/letsencrypt/live/jira.nellmedina.com/fullchain.pem'
-      - 'SERVER2CERTIFICATE_KEY=/etc/letsencrypt/live/jira.nellmedina.com/privkey.pem'
-      - 'SERVER2CERTIFICATE_TRUSTED=/etc/letsencrypt/live/jira.nellmedina.com/fullchain.pem'
+      - 'SERVER2CERTIFICATE_FILE=/etc/letsencrypt/live/mario.nellmedina.com/fullchain.pem'
+      - 'SERVER2CERTIFICATE_KEY=/etc/letsencrypt/live/mario.nellmedina.com/privkey.pem'
+      - 'SERVER2CERTIFICATE_TRUSTED=/etc/letsencrypt/live/mario.nellmedina.com/fullchain.pem'
   test1:
     image: nginx
     container_name: test1_container
