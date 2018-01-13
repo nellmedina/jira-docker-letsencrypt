@@ -5,7 +5,6 @@ services:
     image: blacklabelops/letsencrypt
     container_name: letsencrypt_install
     ports:
-      - '80:80'
       - '443:443'
     volumes:
       - letsencrypt_certificates:/etc/letsencrypt
