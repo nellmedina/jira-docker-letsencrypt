@@ -7,6 +7,7 @@ Create the volumes
 docker volume create letsencrypt_certificates
 
 # create the certificate data
+# note here that DOMAIN1 will become the parent certificate for the other domains therefore points ALL certificate files to DOMAIN1 certificates.
 docker run --rm \
     -p 80:80 \
     -p 443:443 \
