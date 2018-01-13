@@ -1,5 +1,5 @@
 
-#### Register the Domains for SSL using Letsencrypt
+### Register the Domains for SSL using Letsencrypt
 
 Create the SSL certificates and challenges
 ``` bash
@@ -23,11 +23,17 @@ docker run --rm \
 docker volume create letsencrypt_challenges
 ```
 
-Go to `blacklabelops` and run it.
+change directory to `/blacklabelops` which will complete the SSL with Letsencrypt
+``` bash
+docker-compose up -d
+```
 
-Go to `letsencrypt-autorenew` folder and run this.
+change directory to `letsencrypt-autorenew` folder and run this.
 ``` bash
 docker-compose run -d letsencrypt
 ```
 
-Go to `cron-nginx-reload` for automatic reload of nginx.
+change directory to `cron-nginx-reload` for automatic reload of nginx.
+``` bash
+docker-compose up -d
+```
