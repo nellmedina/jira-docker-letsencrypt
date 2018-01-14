@@ -8,6 +8,6 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
       - 'JOB_NAME1=ReloadNginx'
-      - 'JOB_COMMAND1=docker exec nginx_blacklabel nginx -s reload'
+      - 'JOB_COMMAND1=docker exec nginx_blacklabel_prod nginx -s reload'
       - 'JOB_TIME1=0 0 2 15 * *'
       - 'JOB_ON_ERROR1=Continue'
