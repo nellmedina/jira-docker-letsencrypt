@@ -3,10 +3,10 @@
 
 Create the SSL certificates and challenges
 ``` bash
-# create the certificate data container
+# create the volume to store certficates
 docker volume create letsencrypt_certificates
 
-# create the certificate data
+# generate the certificates
 # note that LETSENCRYPT_DOMAIN1 will become the parent certificate for the other domains
 docker run --rm \
     -p 80:80 \
@@ -19,7 +19,7 @@ docker run --rm \
     -e "LETSENCRYPT_DOMAIN4=jenkins.nellmedina.com" \
     blacklabelops/letsencrypt install
     
-# create data container for challenges before running nginx
+# create the volume to store certficate challenges
 docker volume create letsencrypt_challenges
 ```
 
