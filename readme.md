@@ -23,17 +23,20 @@ docker run --rm \
 docker volume create letsencrypt_challenges
 ```
 
-change directory to `/blacklabelops` which will complete the SSL with Letsencrypt
+Change directory to `/nginx-test` which will complete the SSL with letsencrypt
+> This will integrate the nginx proxy server with two separate nginx servers secured with https.
 ``` bash
 docker-compose up -d
 ```
 
-change directory to `letsencrypt-autorenew` folder and run this.
+Change directory to `/letsencrypt-autorenew` folder which will run letsencrypt each month
+> This container will handshake with letsencrypt.org each month on the 15th and renew the certificate when successful.
 ``` bash
 docker-compose run -d letsencrypt
 ```
 
-change directory to `cron-nginx-reload` for automatic reload of nginx.
+Change directory to `/nginx-reload` which will reload Nginx configuration after certificates have been renewed
+> Reloads Nginx configuration each month on the 15th over Docker without restarting Nginx! In order to achieve high availability!
 ``` bash
 docker-compose up -d
 ```
