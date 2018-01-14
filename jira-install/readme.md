@@ -19,4 +19,4 @@ Start it up!
 docker-compose up -d
 ```
 
-> Jira will be accessible on the
+> Jira will be accessible on the set $JIRA_DOMAIN_NAME.
