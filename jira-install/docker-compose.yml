@@ -34,6 +34,16 @@ services:
       - 'SERVER2CERTIFICATE_KEY=/etc/letsencrypt/live/${JENKINS_DOMAIN_NAME_PARENT}/privkey.pem'
       - 'SERVER2CERTIFICATE_TRUSTED=/etc/letsencrypt/live/${JENKINS_DOMAIN_NAME_PARENT}/fullchain.pem'
       - 'SERVER2PROXY_APPLICATION=jenkins'
+      - 'SERVER3SERVER_NAME=${KEYCLOAK_DOMAIN_NAME}'
+      - 'SERVER3REVERSE_PROXY_LOCATION1=/'
+      - 'SERVER3REVERSE_PROXY_PASS1=http://172.17.0.1:18080/'
+      - 'SERVER3HTTPS_ENABLED=${KEYCLOAK_HTTPS}'
+      - 'SERVER3HTTP_ENABLED=${KEYCLOAK_HTTP}'
+      - 'SERVER3LETSENCRYPT_CERTIFICATES=${KEYCLOAK_HTTPS}'
+      - 'SERVER3CERTIFICATE_FILE=/etc/letsencrypt/live/${KEYCLOAK_DOMAIN_NAME_PARENT}/fullchain.pem'
+      - 'SERVER3CERTIFICATE_KEY=/etc/letsencrypt/live/${KEYCLOAK_DOMAIN_NAME_PARENT}/privkey.pem'
+      - 'SERVER3CERTIFICATE_TRUSTED=/etc/letsencrypt/live/${KEYCLOAK_DOMAIN_NAME_PARENT}/fullchain.pem'
+      - 'SERVER3PROXY_APPLICATION=keycloak'
     restart: unless-stopped
   jira_postgresql:
     image: blacklabelops/postgres:${JIRA_POSTGRES_VERSION}
