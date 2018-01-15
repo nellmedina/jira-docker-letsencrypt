@@ -35,8 +35,8 @@ services:
       - 'SERVER2CERTIFICATE_TRUSTED=/etc/letsencrypt/live/${JENKINS_DOMAIN_NAME_PARENT}/fullchain.pem'
       - 'SERVER2PROXY_APPLICATION=jenkins'
       - 'SERVER3SERVER_NAME=${KEYCLOAK_DOMAIN_NAME}'
-      - 'SERVER3REVERSE_PROXY_LOCATION1=/'
-      - 'SERVER3REVERSE_PROXY_PASS1=http://172.17.0.1:18080/'
+      - 'SERVER3REVERSE_PROXY_LOCATION1=/auth'
+      - 'SERVER3REVERSE_PROXY_PASS1=http://172.17.0.1:18081/'
       - 'SERVER3HTTPS_ENABLED=${KEYCLOAK_HTTPS}'
       - 'SERVER3HTTP_ENABLED=${KEYCLOAK_HTTP}'
       - 'SERVER3LETSENCRYPT_CERTIFICATES=${KEYCLOAK_HTTPS}'
@@ -87,4 +87,8 @@ volumes:
   jira_postgresql_volume:
     external: true
   jira_volume:
+    external: true
+  keycloak_volume:
+    external: true
+  keycloak_postgresql_volume:
     external: true
