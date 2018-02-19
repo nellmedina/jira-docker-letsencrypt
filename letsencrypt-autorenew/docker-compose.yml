@@ -12,6 +12,8 @@ services:
       - 'LETSENCRYPT_DOMAIN2=jira.nellmedina.com'
       - 'LETSENCRYPT_DOMAIN3=jenkins.nellmedina.com'
       - 'LETSENCRYPT_DOMAIN4=keycloak.nellmedina.com'
+      - 'LETSENCRYPT_DOMAIN5=repo.nellmedina.com'
+      - 'LETSENCRYPT_DOMAIN6=bitbucket.nellmedina.com'
 
 volumes:
   letsencrypt_certificates:

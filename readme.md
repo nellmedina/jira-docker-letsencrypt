@@ -17,6 +17,8 @@ docker run --rm \
     -e "LETSENCRYPT_DOMAIN2=jira.nellmedina.com" \
     -e "LETSENCRYPT_DOMAIN3=keycloak.nellmedina.com" \
     -e "LETSENCRYPT_DOMAIN4=jenkins.nellmedina.com" \
+    -e "LETSENCRYPT_DOMAIN5=repo.nellmedina.com" \
+    -e "LETSENCRYPT_DOMAIN6=bitbucket.nellmedina.com" \
     blacklabelops/letsencrypt install
     
 # create the volume to store certficate challenges
