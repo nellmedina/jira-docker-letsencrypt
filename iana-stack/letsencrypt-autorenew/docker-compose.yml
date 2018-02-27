@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+  letsencrypt:
+    image: blacklabelops/letsencrypt
+    container_name: letsencrypt_autorenew
+    volumes:
+      - letsencrypt_certificates:/etc/letsencrypt
+      - letsencrypt_challenges:/var/www/letsencrypt
+    environment:
+      - 'LETSENCRYPT_DOMAIN1=iana.nellmedina.com'
+      - 'LETSENCRYPT_DOMAIN2=registry-beta.nellmedina.com'
+      - 'LETSENCRYPT_DOMAIN3=api-beta.nellmedina.com'
+
+volumes:
+  letsencrypt_certificates:
+    external: true
+  letsencrypt_challenges:
+      external: true
